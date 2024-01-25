@@ -89,66 +89,6 @@
         
         <div class="container">
             
-            <h2>
-                Novinky
-            </h2>
-            
-            <?php
-            $blog_query = new WP_Query(array('post_status' => 'publish', 'orderby' => 'ID', 'posts_per_page' => '-1'));
-            ?>
-
-
-            <?php if ($blog_query->have_posts()): ?>
-                
-                <?php $it = 0; ?>
-                
-                <?php $count = count($blog_query); ?>
-                
-                <?php while ($blog_query->have_posts()): ?>
-                            
-                    <?php
-                    $blog_query->the_post();
-                    ?>
-                    
-                    <div class="box">
-
-                                <a href="">
-                                    <div class="inner">
-                                        <span class="title">
-                                    <?php echo get_the_title(); ?>
-                                        </span>
-                                        <p>
-                                    <?php echo get_the_excerpt(); ?>
-                                        </p>
-                                        <div class="bottom">
-                                            <time><?php echo get_post_time('j. n. Y', true); ?></time>
-                                            <span class="arrow"></span>
-                                        </div>
-                                    </div>
-                                </a>   
-                                <div class="article">
-                                    <article>
-                                        <h2>
-                                            <?php echo get_the_title(); ?>
-                                        </h2>
-                                
-                                        <?php
-                                            $post = get_post(get_the_ID());
-                                            $content = apply_filters('the_content', $post->post_content);
-                                            echo $content;
-                                        ?>
-                                    </article>
-                                </div>
-                    </div>
-
-                <?php endwhile; ?>
-            <?php endif; ?>
-                  
-            
-            <a href="" class="button-more" data-no-more="Další novinky nejsou k dispozici">
-                Načíst další
-            </a>
-            
         </div>
         
     </section>
