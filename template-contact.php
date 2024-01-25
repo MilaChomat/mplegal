@@ -33,8 +33,10 @@ Template Name: Kontakt
         <script>
             if(jQuery(window).width() > 977) {
                 var targetZoom = 14;
-                var latPos = 50.073075;
-                var lngPos = 14.403768;
+                var latPos = 50.054;
+                var lngPos = 14.392;
+//                var latPos = 50.073075;
+//                var lngPos = 14.403768;
             } else if(jQuery(window).width() > 767) {
                 var targetZoom = 13;
                 var latPos = 50.073075;
@@ -69,11 +71,11 @@ Template Name: Kontakt
                 });
                 marker = new google.maps.Marker({
                     map: map,
-                    position: new google.maps.LatLng(50.075528, 14.434874),
+                    position: new google.maps.LatLng(50.051844, 14.430830),
                     icon: '<?php echo get_template_directory_uri(); ?>/data/images/marker.png'
                 });
             }
-
+       
 
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClkwSIfiALSPWllgxbfHwIr41wTb3VBuc&callback=initMap"
