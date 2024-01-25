@@ -1,0 +1,187 @@
+////////////////////////////////////////////////////////////////////////////////
+// Netsektor LESS elements library - mixins a dalsi veci pro snazsi kodovani
+////////////////////////////////////////////////////////////////////////////////
+
+// rounded corners
+.rounded-corners (@radius: 5px) {
+    border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    .css3pie();
+}
+
+// tl - top left, tr - top right etc.
+.rounded-corners-custom (@tl: 5px, @tr: 5px, @br: 5px, @bl: 5px) {
+    border-radius: @tl @tr @br @bl;
+    -webkit-border-radius: @tl @tr @br @bl;
+    -moz-border-radius: @tl @tr @br @bl;
+    .css3pie();    
+}
+
+// box shadow basic
+.box-shadow(@horizontal, @vertical, @blur, @spread, @color) {
+    -webkit-box-shadow: @horizontal @vertical @blur @spread @color;
+    -moz-box-shadow: @horizontal @vertical @blur @spread @color;
+    -ms-box-shadow: @horizontal @vertical @blur @spread @color;
+    -o-box-shadow: @horizontal @vertical @blur @spread @color;
+    box-shadow: @horizontal @vertical @blur @spread @color;
+    .css3pie();
+}
+
+// box shadow basic - bez css3pie (napr kdyz je barva rgba)
+.box-shadow-nopie(@horizontal, @vertical, @blur, @spread, @color) {
+    -webkit-box-shadow: @horizontal @vertical @blur @spread @color;
+    -moz-box-shadow: @horizontal @vertical @blur @spread @color;
+    -ms-box-shadow: @horizontal @vertical @blur @spread @color;
+    -o-box-shadow: @horizontal @vertical @blur @spread @color;
+    box-shadow: @horizontal @vertical @blur @spread @color;
+    //.css3pie();
+}
+
+// box shadow with inset
+.box-shadow-inset(@horizontal, @vertical, @blur, @spread, @color) {
+    -webkit-box-shadow: inset @horizontal @vertical @blur @spread @color;
+    -moz-box-shadow: inset @horizontal @vertical @blur @spread @color;
+    -ms-box-shadow: inset @horizontal @vertical @blur @spread @color;
+    -o-box-shadow: inset @horizontal @vertical @blur @spread @color;
+    box-shadow: inset @horizontal @vertical @blur @spread @color;
+    .css3pie();
+}
+
+.box-shadow-ie(@color, @direction, @strength) {
+    //filter: progid:DXImageTransform.Microsoft.Shadow(color=@color, Direction=@direction, Strength=@strength);
+}
+
+// linear gradient version with -pie-background: linear-gradient for IE
+.linear-gradient (@topColor: #ffffff, @bottomColor: #000000) {
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(@topColor), to(@bottomColor));
+    background: -webkit-linear-gradient(@topColor, @bottomColor);
+    background: -moz-linear-gradient(@topColor, @bottomColor);
+    background: -ms-linear-gradient(@topColor, @bottomColor);
+    background: -o-linear-gradient(@topColor, @bottomColor);
+    background: linear-gradient(@topColor, @bottomColor);
+    -pie-background: linear-gradient(@topColor, @bottomColor);
+    .css3pie();
+}
+
+// linear gradient - version with DXImageTransform.Microsoft.gradient for IE
+// sometimes css3pie causes other element to shake, so MS filter is used instead
+// this version affects negatively fonts above the gradient
+.linear-gradient-msfilter (@topColor: #ffffff, @bottomColor: #000000) {
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(@topColor), to(@bottomColor));
+    background: -webkit-linear-gradient(@topColor, @bottomColor);
+    background: -moz-linear-gradient(@topColor, @bottomColor);
+    background: -ms-linear-gradient(@topColor, @bottomColor);
+    background: -o-linear-gradient(@topColor, @bottomColor);
+    background: linear-gradient(@topColor, @bottomColor);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@topColor, endColorstr=@bottomColor); /* for IE */    
+}
+
+// transparent element
+.transparent (@transparency: 50) {
+	zoom: 1;
+	filter: alpha(opacity=@transparency);
+	opacity: @transparency / 100;
+}
+
+// IE support pro nektere CSS3 properties
+// @see http://css3pie.com/
+.css3pie() { 
+    behavior: url('PIE.htc'); 
+    position: relative;
+    z-index: 0;
+    zoom: 1;
+}
+
+// background cover element
+.bg-cover() {
+    background: no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover; 
+    background-size: cover;
+}
+
+// mixin to set input placeholder color
+.placeholder-color(@color) {
+    &::-webkit-input-placeholder { color: @color !important; }
+    &:-moz-placeholder { color: @color !important; }
+    &::-moz-placeholder { color: @color !important; }
+    &:-ms-input-placeholder { color: @color !important; }
+}
+
+// Clear CSS floated elements
+// @see http://sonspring.com/journal/clearing-floats
+.clear() {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0; 
+}
+
+// Force Element To Self-Clear its Children
+// @see http://css-tricks.com/snippets/css/clear-fix/
+.clearfix() {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+    &:before { content: ""; display: table; } 
+    &:after { content: ""; display: table; clear: both; }    
+}
+
+// Circle shape
+// @see http://www.css3shapes.com/
+.shape-circle(@radius: 5px, @color: #000000) {
+    display: block;
+    background: @color;
+    width: (@radius * 2);
+    height: (@radius * 2);
+    .rounded-corners(@radius);
+} 
+
+// Triangle right
+// @see http://css-tricks.com/examples/ShapesOfCSS/
+.triangle-right(@leftEdge, @otherEdges, @bgColor) {	
+    //background-color: @bgColor; 
+    width: 0;
+	height: 0;
+	border-top: @otherEdges solid transparent;
+	border-left: @leftEdge solid @bgColor;
+	border-bottom: @otherEdges solid transparent;
+}
+
+// Triangle down
+// @see http://css-tricks.com/examples/ShapesOfCSS/
+.triangle-down(@topEdge, @otherEdges, @bgColor) {	
+    //background-color: @bgColor; 
+    width: 0;
+	height: 0;
+    border-top: @topEdge solid @bgColor;
+	border-left: @otherEdges solid transparent;	
+	border-right: @otherEdges solid transparent;
+}
+
+// Triangle up
+// @see http://css-tricks.com/examples/ShapesOfCSS/
+.triangle-up(@bottomEdge, @otherEdges, @bgColor) {	
+    background-color: @bgColor; 
+    width: 0;
+	height: 0;
+    border-bottom: @bottomEdge solid @bgColor;
+	border-left: @otherEdges solid transparent;	
+	border-right: @otherEdges solid transparent;
+}
+
+// Nastaveni border-box
+// @see http://css-tricks.com/box-sizing/
+.border-box() { 
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.rotate(@deg: 90deg){
+    -ms-transform: rotate(@deg); /* IE 9 */
+    -webkit-transform: rotate(@deg); /* Chrome, Safari, Opera */
+    transform: rotate(@deg);
+}

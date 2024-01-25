@@ -1,0 +1,80 @@
+@import "base/reset.less";
+@import "main/colors.less";
+@import "base/nslesslib.less";
+@import "base/nscsslib.less";
+@import "main/fonts.less";
+@import "main/icons.less";
+@import "main/backgrounds.less";
+@import "main/forms.less";
+
+@import "main/basics.less";
+
+.container {
+    width: 1310px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+@media screen  and (min-width: 1926px) { 
+    body {
+        border-left: 3px solid #22275b;
+        border-right: 3px solid #22275b;
+        background: #ffffff;
+    }
+    html {
+        background: #fafafa;
+    }
+}
+
+@media screen  and (max-width: 1500px)  and (min-width: 0px) {
+    
+    footer .footer-left.footer-left-contact {
+        left: -40px;
+    }
+    
+}
+
+
+@media screen  and (max-width: 1400px)  and (min-width: 0px) {
+    @import "grid/grid.1178.less";
+    @import "vars/vars1178.less";
+    
+    @import "custom/custom1178.less";    
+    .container {
+        width: 1210px;
+    }
+    
+}
+
+@media screen  and (max-width: 1229px) and (min-width: 0px) {
+    @import "grid/grid.978.less";
+    @import "vars/vars978.less";    
+    .container {
+        width: 948px;
+    }
+    @import "custom/custom978.less";
+    
+}
+
+@media screen  and (max-width: 977px) and (min-width: 0px) {
+    @import "grid/grid.748.less";
+    @import "vars/vars768.less";
+    .container {
+        width: 748px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    @import "custom/custom768.less";
+} 
+
+@media screen  and (max-width: 767px) and (min-width: 0px) {
+    @import "grid/grid.300.fluid.less";
+    @import "vars/vars300.less";
+    //@import "main/common.less";
+    .container {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    @import "custom/custom300.less";
+}

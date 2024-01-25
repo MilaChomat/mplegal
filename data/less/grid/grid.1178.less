@@ -1,0 +1,143 @@
+/*
+	Variable Grid System.
+	Learn more ~ http://www.spry-soft.com/grids/
+	Based on 960 Grid System - http://960.gs/
+
+	Licensed under GPL and MIT.
+*/
+
+/*
+  Forces backgrounds to span full width,
+  even if there is horizontal scrolling.
+  Increase this if your layout is wider.
+
+  Note: IE6 works fine without this fix.
+*/
+
+@colWidth: 75px;// 1178 - 70.666666666666666666666666666667px;
+@margin: 15px;
+@columns: 12;
+@gap: 30px;
+//body { width: @margin * 2 + @columns * @colWidth + (@columns - 1) * @gap }
+
+/* Containers
+----------------------------------------------------------------------------------------------------*/
+.g1178_container_12() {
+	margin-left: auto;
+	margin-right: auto;
+	width: (@columns * @colWidth + (@columns - 1) * @gap + (2 * @margin));
+}
+
+/* Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+.g1178_grid_element(@cols) {
+	display:inline;
+	float: left;
+	position: relative;
+	margin-left: (@gap / 2);
+	margin-right: (@gap / 2);
+    width: (@cols * @colWidth + (@cols - 1) * @gap);
+}
+.g1178_container_12_grid_1() { .g1178_grid_element(1); } 
+.g1178_container_12_grid_2() { .g1178_grid_element(2); } 
+.g1178_container_12_grid_3() { .g1178_grid_element(3); } 
+.g1178_container_12_grid_4() { .g1178_grid_element(4); } 
+.g1178_container_12_grid_5() { .g1178_grid_element(5); } 
+.g1178_container_12_grid_6() { .g1178_grid_element(6); } 
+.g1178_container_12_grid_7() { .g1178_grid_element(7); } 
+.g1178_container_12_grid_8() { .g1178_grid_element(8); } 
+.g1178_container_12_grid_9() { .g1178_grid_element(9); } 
+.g1178_container_12_grid_10() { .g1178_grid_element(10); } 
+.g1178_container_12_grid_11() { .g1178_grid_element(11); } 
+.g1178_container_12_grid_12() { .g1178_grid_element(12); } 
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+.alpha() {
+	margin-left: 0;
+}
+
+.omega() {
+	margin-right: 0;
+}
+
+/* Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+//already defined above via mixin
+
+
+/* Prefix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+.g1178_prefix_element(@cols) {
+    padding-left: (@cols * @colWidth + (@cols) * @gap);
+}
+.g1178_container_12_prefix_0() { .g1178_prefix_element(0); }
+.g1178_container_12_prefix_1() { .g1178_prefix_element(1); }
+.g1178_container_12_prefix_2() { .g1178_prefix_element(2); }
+.g1178_container_12_prefix_3() { .g1178_prefix_element(3); }
+.g1178_container_12_prefix_4() { .g1178_prefix_element(4); }
+.g1178_container_12_prefix_5() { .g1178_prefix_element(5); }
+.g1178_container_12_prefix_6() { .g1178_prefix_element(6); }
+.g1178_container_12_prefix_7() { .g1178_prefix_element(7); }
+.g1178_container_12_prefix_8() { .g1178_prefix_element(8); }
+.g1178_container_12_prefix_9() { .g1178_prefix_element(9); }
+.g1178_container_12_prefix_10() { .g1178_prefix_element(10); }
+.g1178_container_12_prefix_11() { .g1178_prefix_element(11); }
+
+/* Suffix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+.g1178_suffix_element(@cols) {
+    padding-right: (@cols * @colWidth + (@cols - 1) * @gap);
+}
+.g1178_container_12_suffix_0() { .g1178_suffix_element(0); }
+.g1178_container_12_suffix_1() { .g1178_suffix_element(1); }
+.g1178_container_12_suffix_2() { .g1178_suffix_element(2); }
+.g1178_container_12_suffix_3() { .g1178_suffix_element(3); }
+.g1178_container_12_suffix_4() { .g1178_suffix_element(4); }
+.g1178_container_12_suffix_5() { .g1178_suffix_element(5); }
+.g1178_container_12_suffix_6() { .g1178_suffix_element(6); }
+.g1178_container_12_suffix_7() { .g1178_suffix_element(7); }
+.g1178_container_12_suffix_8() { .g1178_suffix_element(8); }
+.g1178_container_12_suffix_9() { .g1178_suffix_element(9); }
+.g1178_container_12_suffix_10() { .g1178_suffix_element(10); }
+.g1178_container_12_suffix_11() { .g1178_suffix_element(11); }
+
+/* Push Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+.g1178_push_element(@cols) {
+    left: (@cols * @colWidth + (@cols - 1) * @gap);
+    position: relative;
+}
+.g1178_container_12_push_0() { .g1178_push_element(0); }
+.g1178_container_12_push_1() { .g1178_push_element(1); }
+.g1178_container_12_push_2() { .g1178_push_element(2); }
+.g1178_container_12_push_3() { .g1178_push_element(3); }
+.g1178_container_12_push_4() { .g1178_push_element(4); }
+.g1178_container_12_push_5() { .g1178_push_element(5); }
+.g1178_container_12_push_6() { .g1178_push_element(6); }
+.g1178_container_12_push_7() { .g1178_push_element(7); }
+.g1178_container_12_push_8() { .g1178_push_element(8); }
+.g1178_container_12_push_9() { .g1178_push_element(9); }
+.g1178_container_12_push_10() { .g1178_push_element(10); }
+.g1178_container_12_push_11() { .g1178_push_element(11); }
+
+
+/* Pull Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+.g1178_pull_element(@cols) {
+    left: -(@cols * @colWidth + (@cols - 1) * @gap);
+    position: relative;
+}
+.g1178_container_12_pull_0() { .g1178_pull_element(0); }
+.g1178_container_12_pull_1() { .g1178_pull_element(1); }
+.g1178_container_12_pull_2() { .g1178_pull_element(2); }
+.g1178_container_12_pull_3() { .g1178_pull_element(3); }
+.g1178_container_12_pull_4() { .g1178_pull_element(4); }
+.g1178_container_12_pull_5() { .g1178_pull_element(5); }
+.g1178_container_12_pull_6() { .g1178_pull_element(6); }
+.g1178_container_12_pull_7() { .g1178_pull_element(7); }
+.g1178_container_12_pull_8() { .g1178_pull_element(8); }
+.g1178_container_12_pull_9() { .g1178_pull_element(9); }
+.g1178_container_12_pull_10() { .g1178_pull_element(10); }
+.g1178_container_12_pull_11() { .g1178_pull_element(11); }
